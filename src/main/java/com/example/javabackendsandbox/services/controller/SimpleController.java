@@ -1,11 +1,9 @@
 package com.example.javabackendsandbox.services.controller;
 
 import com.example.javabackendsandbox.services.core.SimpleService;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin
 @RestController
 @RequestMapping(path = "/v1/response")
 public class SimpleController {
@@ -18,12 +16,18 @@ public class SimpleController {
 
     @RequestMapping(path = "/simple/{name}", method = RequestMethod.GET)
     public String SimplerResponse(@PathVariable("name") String name) {
-        return simpleService.SimpleResponse(name);
+        System.out.println("Input >> " + name);
+        var response = simpleService.SimpleResponse(name);
+        System.out.println(response + " << Output");
+        return response;
     }
 
-    @RequestMapping(path = "/simple", method = RequestMethod.GET)
+    @RequestMapping(path = "/simple/", method = RequestMethod.GET)
     public String SimplerResponse() {
-        return simpleService.SimplerResponse();
+        System.out.println("Input >> {empty}");
+        var response = simpleService.SimplerResponse();
+        System.out.println(response + " << Output");
+        return response;
     }
 
 }
