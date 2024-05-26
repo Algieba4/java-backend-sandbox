@@ -16,18 +16,17 @@ public class SimpleController {
 
     @RequestMapping(path = "/simple/{name}", method = RequestMethod.GET)
     public String SimplerResponse(@PathVariable("name") String name) {
-        System.out.println("Input >> " + name);
-        var response = simpleService.SimpleResponse(name);
-        System.out.println(response + " << Output");
-        return response;
+        return simpleService.SimpleResponse(name);
     }
 
     @RequestMapping(path = "/simple/", method = RequestMethod.GET)
     public String SimplerResponse() {
-        System.out.println("Input >> {empty}");
-        var response = simpleService.SimplerResponse();
-        System.out.println(response + " << Output");
-        return response;
+        return simpleService.SimplerResponse();
+    }
+
+    @RequestMapping(path = "/simple/html", method = RequestMethod.GET)
+    public String SimpleHtmlResponse() {
+        return simpleService.SimpleHtmlResponse();
     }
 
 }
