@@ -1,4 +1,4 @@
-package com.example.javabackendsandbox.services.core;
+package com.example.javabackendsandbox.services;
 
 import org.springframework.stereotype.Component;
 
